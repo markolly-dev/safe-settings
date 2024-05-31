@@ -1,0 +1,98 @@
+# This settings can be used to create org level settings
+
+repository:
+  # General repository settings
+  description: This is a default description for repositories in this organization.
+  homepage: https://example.github.io/
+  auto_init: true
+  topics: 
+    - github
+    - safe-settings
+    - default-topic
+  
+  # Security settings
+  security:
+    enableVulnerabilityAlerts: true
+    enableAutomatedSecurityFixes: true
+  
+  # Repository visibility
+  private: false
+  visibility: internal
+  
+  # Repository features
+  has_issues: true
+  has_projects: false
+  has_wiki: false
+  default_branch: main
+  
+  # Git ignore template
+  gitignore_template: node
+  
+  # License template
+  license_template: mit
+  
+  # Merge options
+  allow_squash_merge: true
+  allow_merge_commit: false
+  allow_rebase_merge: false
+  allow_auto_merge: true
+  delete_branch_on_merge: true 
+  allow_update_branch: true 
+
+# Labels for issues and pull requests
+labels:
+  - name: bug
+    color: CC0000
+    description: An issue with the system
+  - name: feature
+    color: '#336699'
+    description: New functionality
+  - name: documentation
+    color: '#0075ca'
+    description: Improvements or additions to documentation
+  - name: enhancement
+    color: '#a2eeef'
+    description: New feature or request
+
+# Collaborators and permissions
+collaborators:
+  - username: octocat
+    permission: push
+  - username: hubot
+    permission: pull
+
+# Team permissions
+teams:
+  - name: developers
+    permission: push
+  - name: admins
+    permission: admin
+
+# Branch protection rules
+branches:
+  - name: default
+    protection:
+      required_pull_request_reviews:
+        required_approving_review_count: 2
+        dismiss_stale_reviews: true
+        require_code_owner_reviews: true
+        require_last_push_approval: true
+        bypass_pull_request_allowances:
+          apps: []
+          users: []
+          teams: []
+        dismissal_restrictions:
+          users: []
+          teams: []
+      required_status_checks:
+        strict: true
+        contexts: ['continuous-integration/travis-ci', 'codecov']
+      enforce_admins: true
+      restrictions:
+        apps: []
+        users: []
+        teams: []
+
+# Repository naming pattern validator
+validator:
+  pattern: '[a-zA-Z0-9_-]+_[a-zA-Z0-9_-]+.*'
