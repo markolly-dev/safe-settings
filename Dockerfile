@@ -10,6 +10,7 @@ LABEL version="1.0" \
 ## to the image to be as small as possible
 COPY  package.json /opt/safe-settings/
 COPY  index.js /opt/safe-settings/
+COPY  private-key.pem /opt/safe-settings/
 COPY  lib /opt/safe-settings/lib
 
 ## Install the app and dependencies
